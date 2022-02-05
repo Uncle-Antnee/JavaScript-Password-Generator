@@ -13,18 +13,18 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
-  let userConfirms = ""; //make this a string instead
+  let userConfirms = ""; //make this a string instead 
   let userRejects = "";
 
   let passwordLength = parseInt(prompt("How long would you like your password? Please choose between 8 - 128 characters")) ;
-
+     // Get references to the password length
     while (!passwordLength || passwordLength < 8 || passwordLength >128 || passwordLength == NaN) {
       passwordLength = parseInt(prompt("Please choose a valid password length")) ;  
     }
-
     alert("You choose " + passwordLength + ".")
     alert("Please select at least one of the following criteria prompts for your password.")
-  
+
+    // Get references to the uppercase letters
   let uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   let confirmUppercase = confirm("Do you want your password to have uppercase letters?");
 
@@ -35,7 +35,7 @@ function generatePassword() {
     alert("WHAT!!! You to good for UPPERCASE letters?")
     userRejects += uppercase
   }
-
+    // Get references to the lowercase letters
   let lowercase = "abcdefghijklmnopqrstuvwxyuz"
   let confirmLowercase = confirm("Do you want your password to have lowercase letters?");
 
@@ -46,7 +46,7 @@ function generatePassword() {
     alert("OH!! you like the big ones.")
     userRejects += lowercase
   }
- 
+    // Get references to the numbers
   let numbers = "0123456789"
   let confirmNumbers = confirm("Do you want your password to have numbers?");
 
@@ -57,7 +57,9 @@ function generatePassword() {
     alert("No one likes numbers anyways")
     userRejects += numbers
   }
+    // end of asking and choosing numbers
 
+    // Get references to the special characters
   let characters = "!@#$%^&*"
   let confirmCharacters = confirm("Do you want your password to have special characters?");
 
@@ -68,9 +70,11 @@ function generatePassword() {
     alert("WHAT!!! Now you have something against special characters too?")
     userRejects += characters
   }
+  // end of asking and choosing special characters
 
+    // local var for new password
   var newPassword = "";
-
+    // if no options where choosen then they will get back a "Unable to generate password due to lack of valid criteria. Please try again."
   if (!confirmUppercase && !confirmLowercase && !confirmNumbers && !confirmCharacters) {
     return "Unable to generate password due to lack of valid criteria. Please try again.";
     //location.reload();
